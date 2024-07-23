@@ -4,14 +4,6 @@ import 'package:flutter_zustand/flutter_zustand.dart';
 class ThemeStore extends Store<ThemeMode> {
   ThemeStore() : super(ThemeMode.system);
 
-  void toggleTheme() {
-    set(state == ThemeMode.system ? ThemeMode.dark : ThemeMode.system);
-  }
-
-  void setTheme(ThemeMode theme) {
-    set(theme);
-  }
-
   void setLightTheme() {
     set(ThemeMode.light);
   }
@@ -23,7 +15,6 @@ class ThemeStore extends Store<ThemeMode> {
   void setSystemTheme() {
     set(ThemeMode.system);
   }
-
 }
 
 ThemeStore useThemeStore() => create(() => ThemeStore());

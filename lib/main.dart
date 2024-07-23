@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zustand/flutter_zustand.dart';
-import 'package:starter/pages/home/main.dart';
+import 'package:starter/layout.dart';
 import 'package:starter/stores/theme.dart';
 
 void main() {
@@ -17,10 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const HomePage(),
+      home: const Layout(),
       themeMode: theme,
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,

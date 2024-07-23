@@ -10,19 +10,18 @@ class Settings extends StatelessWidget {
     final theme = useThemeStore();
 
     final List<Map<String, dynamic>> data = [
-      {'icon': Icons.brightness_6, 'title': '테마', 'route': const ThemeSetting()},
+      {
+        'icon': Icons.brightness_6,
+        'title': '테마',
+        'route': const ThemeSetting()
+      },
       {'icon': Icons.notifications, 'title': '알림'},
       {'icon': Icons.language, 'title': '언어'},
       {'icon': Icons.account_circle, 'title': '계정'}
     ];
 
-
     // return a Scaffold
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('설정'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-      ),
       body: ListView.builder(
         itemCount: data.length,
         itemBuilder: (BuildContext context, int index) {
@@ -32,10 +31,19 @@ class Settings extends StatelessWidget {
               title: Text(data[index]['title']),
               trailing: const Icon(Icons.arrow_right),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => data[index]['route'])
-                );
+                if (data[index]['route'] != null) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => data[index]['route']));
+                } else {
+                  // toast message 표시
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text('준비중인 기능이에요.'),
+                    ),
+                  );
+                }
               },
             ),
           );
