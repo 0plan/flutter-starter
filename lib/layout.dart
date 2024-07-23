@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_zustand/flutter_zustand.dart';
+import 'package:starter/pages/bookmark/home.dart';
 import 'package:starter/pages/home/main.dart';
 import 'package:starter/pages/settings/settings.dart';
 import 'package:starter/stores/bottomTab.dart';
@@ -14,27 +15,7 @@ class Layout extends StatelessWidget {
 
     const List<Widget> pages = [
       HomePage(),
-      Padding(
-        padding: EdgeInsets.all(8.0),
-        child: Column(
-          children: <Widget>[
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.notifications_sharp),
-                title: Text('Notification 1'),
-                subtitle: Text('This is a notification'),
-              ),
-            ),
-            Card(
-              child: ListTile(
-                leading: Icon(Icons.notifications_sharp),
-                title: Text('Notification 2'),
-                subtitle: Text('This is a notification'),
-              ),
-            ),
-          ],
-        ),
-      ),
+      BookmarkHome(),
       Settings(),
     ];
 
