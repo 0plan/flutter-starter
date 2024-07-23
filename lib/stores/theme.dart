@@ -15,6 +15,7 @@ class ThemeStore extends Store<ThemeMode> {
   void setSystemTheme() {
     set(ThemeMode.system);
   }
+
 }
 
 ThemeStore useThemeStore() => create(() => ThemeStore());

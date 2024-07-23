@@ -14,22 +14,19 @@ class Layout extends StatelessWidget {
     final tab = useBottomTabStore();
 
     const List<Widget> pages = [
-      HomePage(),
-      BookmarkHome(),
+      Home(),
+      BookmarkHome(type: GridListDemoType.footer),
       Settings(),
     ];
 
     return Scaffold(
       appBar: AppBar(
-        actions: [
+        actions: const [
           IconButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Settings()),
-                );
-              },
-              icon: const Icon(Icons.settings)),
+            onPressed: null,
+            icon: Badge(
+                label: Text('9+'), child: Icon(Icons.notifications_sharp)),
+          ),
         ],
       ),
       body: Center(
