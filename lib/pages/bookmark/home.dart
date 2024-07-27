@@ -70,23 +70,19 @@ class BookmarkHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: GridView.count(
-          restorationId: 'grid_view_demo_grid_offset',
-          crossAxisCount: 2,
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
-          padding: const EdgeInsets.all(8),
-          childAspectRatio: 1,
-          children: _photos.map<Widget>((photo) {
-            return _GridDemoPhotoItem(
-              photo: photo,
-              tileStyle: type,
-            );
-          }).toList(),
-        ),
-      ),
+    return GridView.count(
+      restorationId: 'grid_view_demo_grid_offset',
+      crossAxisCount: 2,
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      padding: const EdgeInsets.all(8),
+      childAspectRatio: 1,
+      children: _photos.map<Widget>((photo) {
+        return _GridDemoPhotoItem(
+          photo: photo,
+          tileStyle: type,
+        );
+      }).toList(),
     );
   }
 }
@@ -145,34 +141,34 @@ class _GridDemoPhotoItem extends StatelessWidget {
     return switch (tileStyle) {
       GridListDemoType.imageOnly => image,
       GridListDemoType.header => GridTile(
-        header: Material(
-          color: Colors.transparent,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(4)),
+          header: Material(
+            color: Colors.transparent,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(4)),
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: GridTileBar(
+              title: _GridTitleText(photo.title),
+              backgroundColor: Colors.black45,
+            ),
           ),
-          clipBehavior: Clip.antiAlias,
-          child: GridTileBar(
-            title: _GridTitleText(photo.title),
-            backgroundColor: Colors.black45,
-          ),
+          child: image,
         ),
-        child: image,
-      ),
       GridListDemoType.footer => GridTile(
-        footer: Material(
-          color: Colors.transparent,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(bottom: Radius.circular(4)),
+          footer: Material(
+            color: Colors.transparent,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(bottom: Radius.circular(4)),
+            ),
+            clipBehavior: Clip.antiAlias,
+            child: GridTileBar(
+              backgroundColor: Colors.black45,
+              title: _GridTitleText(photo.title),
+              subtitle: _GridTitleText(photo.subtitle),
+            ),
           ),
-          clipBehavior: Clip.antiAlias,
-          child: GridTileBar(
-            backgroundColor: Colors.black45,
-            title: _GridTitleText(photo.title),
-            subtitle: _GridTitleText(photo.subtitle),
-          ),
-        ),
-        child: image,
-      )
+          child: image,
+        )
     };
   }
 }
@@ -182,3 +178,4 @@ enum GridListDemoType {
   header,
   footer,
 }
+
