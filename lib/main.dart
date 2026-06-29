@@ -22,7 +22,13 @@ class MyApp extends StatelessWidget {
       ),
       home: const Layout(),
       themeMode: theme,
-      darkTheme: ThemeData.dark(),
+      darkTheme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          brightness: Brightness.dark,
+        ),
+        useMaterial3: true,
+      ),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -10,8 +10,8 @@ class Layout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tabIndex = useBottomTabStore().select(context, (state) => state);
     final tab = useBottomTabStore();
+    final tabIndex = tab.select(context, (state) => state);
 
     const List<Widget> pages = [
       Home(),
@@ -47,7 +47,7 @@ class Layout extends StatelessWidget {
             label: '설정',
           ),
         ],
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         onTap: (int index) {
           tab.setIndex(index);
         },
