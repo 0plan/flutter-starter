@@ -3,15 +3,15 @@ import 'package:flutter_zustand/flutter_zustand.dart';
 import 'package:starter/pages/bookmark/home.dart';
 import 'package:starter/pages/home/main.dart';
 import 'package:starter/pages/settings/settings.dart';
-import 'package:starter/stores/bottomTab.dart';
+import 'package:starter/stores/bottom_tab.dart';
 
 class Layout extends StatelessWidget {
   const Layout({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final tabIndex = useBottomTabStore().select(context, (state) => state);
     final tab = useBottomTabStore();
+    final tabIndex = tab.select(context, (state) => state);
 
     const List<Widget> pages = [
       Home(),
@@ -47,7 +47,7 @@ class Layout extends StatelessWidget {
             label: '설정',
           ),
         ],
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Theme.of(context).colorScheme.primary,
         onTap: (int index) {
           tab.setIndex(index);
         },
