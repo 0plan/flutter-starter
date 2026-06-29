@@ -70,23 +70,23 @@ class BookmarkHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: GridView.count(
-          restorationId: 'grid_view_demo_grid_offset',
-          crossAxisCount: 2,
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
-          padding: const EdgeInsets.all(8),
-          childAspectRatio: 1,
-          children: _photos.map<Widget>((photo) {
-            return _GridDemoPhotoItem(
-              photo: photo,
-              tileStyle: type,
-            );
-          }).toList(),
-        ),
-      ),
+    // No inner MaterialApp/Scaffold here: this widget is rendered inside the
+    // app's root MaterialApp (see main.dart) and the shared Scaffold in
+    // layout.dart. Nesting another MaterialApp would break theme inheritance
+    // (e.g. dark mode) and navigation for this tab.
+    return GridView.count(
+      restorationId: 'grid_view_demo_grid_offset',
+      crossAxisCount: 2,
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      padding: const EdgeInsets.all(8),
+      childAspectRatio: 1,
+      children: _photos.map<Widget>((photo) {
+        return _GridDemoPhotoItem(
+          photo: photo,
+          tileStyle: type,
+        );
+      }).toList(),
     );
   }
 }
