@@ -3,7 +3,7 @@ import 'package:flutter_zustand/flutter_zustand.dart';
 import 'package:starter/pages/bookmark/home.dart';
 import 'package:starter/pages/home/main.dart';
 import 'package:starter/pages/settings/settings.dart';
-import 'package:starter/stores/bottomTab.dart';
+import 'package:starter/stores/bottom_tab.dart';
 
 class Layout extends StatelessWidget {
   const Layout({super.key});

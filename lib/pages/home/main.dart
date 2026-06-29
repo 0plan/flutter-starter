@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:starter/components/searchBar.dart';
+import 'package:starter/components/search_bar.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
